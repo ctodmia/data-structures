@@ -1,33 +1,42 @@
 var Stack = function() {
-var stackMethods = {};
-var index = 0;
-var storage = {};
-  // Hey! Rewrite in the new style. Your code will wind up looking very similar,
+ // Hey! Rewrite in the new style. Your code will wind up looking very similar,
+ // but try not not reference your old code in writing the new style.
+    
+ //var obj = {};
+ //storage.value = value;
+  
+  storage = {};
 
-  stackMethods.push = function (value) {
-    storage[index] = value;
-    index++;
-  }
-  stackMethods.pop = function () {
-    if (index>0){
-      var stored = storage[index-1];
-      delete storage[index-1];
-      index--;
-      return stored;
-    }
-  }
+ storage.index = 0;
+ _.extend(storage, stackMethods);
 
-  stackMethods.size = function () {
-    return index;
-  };
-  return stackMethods;
-  // but try not not reference your old code in writing the new style.
+ /*storage.size = stackMethods.size; 
+ storage.push = stackMethods.push; 
+ storage.pop = stackMethods.pop;*/ 
 
-
+ return storage;
 };
 
-var NewMethod = {};
-NewMethod.push =   function(){
-  
-}
 
+var stackMethods = {
+
+    push : function(value) {
+
+    storage[this.index] = value;
+    //console.log(this.value);
+   this.index++;
+    
+    },
+    pop : function() {
+    if(this.index>0) {
+    var temp = storage[this.index-1]
+   delete storage[this.index-1];
+   this.index--; 
+   return temp;
+        }
+    },
+    
+    size : function () {
+        return this.index;
+    }
+};
