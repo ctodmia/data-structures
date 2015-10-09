@@ -27,5 +27,5 @@ Stack.prototype.size =   function(){
   return this.storage.index;
 }
 
-var stack = new Stack();
+var storage = new Stack();
 //new Stack();
