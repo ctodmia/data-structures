@@ -8,29 +8,41 @@ var LinkedList = function(){
     //if new nodes are added to list, then replace tail with new nodes. 
     // node.next === list.tail;
     //at list.tail, node.next should = list.tail
-    if(list.head === null){
-      list.head=Node();
-      list.tail=list.head;
+    var newNode = new Node(value);
+      
+    if(this.head === null){
+      this.head = newNode;
+      this.tail = newNode;
     }else {
-      //list.tail.next=Node();
-      list.tail=list.head;
+      var prev = this.tail;
+       this.tail = newNode;
+      prev.next = this.tail;
+
+       
+
+    
     }
-    list.tail.value=value;
+    //list.tail.value=value;
   
     
   };
 
-  list.removeHead = function(value){
+  list.removeHead = function(){
     //should remove the head from the list when the removeHead is called.
     // node.next = node.value;
     //list.head.next = list.head.value;
     //list.removeHead();
-    if (list.head.value){
-      list.head=Node();
-      list.head.value = list.head.value;
-    }
-  };
+    
+     var next = this.head.next;
+     var remove = this.head.value;
+     this.head = next;
+    return remove;
+    //current = prev;
+    
+    
 
+    };
+ 
   list.contains = function(target){
   };
 
