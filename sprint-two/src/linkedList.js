@@ -12,7 +12,7 @@ var LinkedList = function(){
       
     if(this.head === null){
       this.head = newNode;
-      console.log("this is my head", this.head);
+      //console.log("this is my head", this.head);
       this.tail = newNode;
     }else {
       var prev = this.tail;
@@ -35,10 +35,10 @@ var LinkedList = function(){
     //list.removeHead();
     
      var next = this.head.next;
-      console.log(this.head.value);
+      //console.log(this.head.value);
      var current = this.head.value;
      var remove = this.head.value;
-     console.log("this is before", this.head.value);
+     //console.log("this is before", this.head.value);
      this.head = next;
     return remove;
     //current = prev;
@@ -48,20 +48,17 @@ var LinkedList = function(){
     };
  
   list.contains = function(target){
-    for(var target in this.head){
-      console.log('target', this.head, 'target', target, 'tail', this.tail);
-    }
-    //go through the list and if the value was add, should return true,
-    //if the value was removed, should return false. 
-     console.log("this is in contains",this.head.value);
-    if (this.head.value===target){
-
-       console.log("this is it", current);
+    if(this.head.value === target || this.tail.value === target) {
       return true;
-    } else{
-      this.head.value = target;
-      return true; 
+    } else {
+      return false;
     }
+    //console.log('check this', this.head, 'check tail', this.tail);
+        //go through the list and if the value was add, should return true,
+    //if the value was removed, should return false. 
+    
+
+       
 
   };
 
@@ -80,4 +77,5 @@ var Node = function(value){
 
 /*
  * Complexity: What is the time complexity of the above functions?
- */
+ */ 
+ //the time complexity of the above function is constant time. 
